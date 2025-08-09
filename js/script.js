@@ -1,19 +1,19 @@
-// Theme Toggle
-const themeToggle = document.getElementById("theme-toggle");
-themeToggle.addEventListener("click", () => {
+// Theme toggle
+const toggleBtn = document.getElementById("theme-toggle");
+toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
 // Navbar fade on scroll
 let lastScrollY = window.scrollY;
-const navbar = document.getElementById("navbar");
+const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > lastScrollY) {
-        navbar.style.opacity = "0";
+        header.classList.add("hidden");
     } else {
-        navbar.style.opacity = "1";
+        header.classList.remove("hidden");
     }
     lastScrollY = window.scrollY;
 });
