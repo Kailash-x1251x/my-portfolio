@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header id="navbar">
+        <nav>
+            <h1>Gurram Kailash Sai</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Hi, I'm <span class="highlight">Kailash</span></h2>
+        <p>A DevOps Intern, trying to learn more and showcase my skills.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h3>About Me</h3>
+        <img src="profile.jpeg" 
+        alt="Profile picture" 
+        class="profile-pic"
+        onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <p>A motivated and innovative Computer Science and Engineering graduate with hands-on experience in web development and software
+engineering. Proficient in Python, SQL, and web technologies, with a growing expertise in cloud services like AWS. Passionate about solving
+real-world problems through technology, with a strong drive to learn, contribute to impactful projects, and collaborate with dynamic, cross-
+functional teams.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h3>Skills</h3>
+        <div class="skills-list">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>React</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h3>Projects</h3>
+        <div class="project-card">
+            <img src="images/project1.jpg" 
+                 alt="Project 1"
+                 onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200';">
+            <h4>Project Title</h4>
+            <p>Short description of your project.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h3>Contact</h3>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Gurram Kailash Sai — Built with 💻 & ☕</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

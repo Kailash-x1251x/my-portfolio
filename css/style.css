@@ -1,0 +1,208 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #000428, #004e92, #ffffff);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.3); /* Transparent */
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: opacity 0.4s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+header.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left corner name */
+nav h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Navigation Links */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: transparent;
+    -webkit-text-stroke: 1px white; /* Outline text */
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover underline effect */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: white;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6rem 1rem 3rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Sections */
+section {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* About Section Image */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Skills Section */
+.skills-list span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f4f4f4;
+    margin: 0.3rem;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.skills-list span:hover {
+    transform: scale(1.1);
+    background-color: #007bff;
+    color: white;
+}
+
+/* Projects Section */
+.project-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.project-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+input, textarea, button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Dark mode */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode a {
+    -webkit-text-stroke: 1px black;
+    color: transparent;
+}
+
+.dark-mode header {
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 1rem;
+        border-radius: 8px;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
