@@ -1,142 +1,157 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(to bottom right, #000428, #004e92, #ffffff);
-    background-attachment: fixed;
-    color: black;
+    color: white; /* Day mode text is white */
     transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #007bff, black, white);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
 }
 
+/* Smooth gradient animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Transparent Header & Navigation */
 header {
     padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    position: sticky;
     top: 0;
-    background: transparent;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 1000;
-    transition: opacity 0.5s ease;
+    backdrop-filter: blur(10px);
+    transition: top 0.3s ease, opacity 0.3s ease;
 }
 
-header.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
+/* Nav container */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
+/* The left side: site title */
 nav h1 {
-    color: white;
-    -webkit-text-stroke: 0.5px black;
     margin: 0;
+    font-weight: 700;
 }
 
+/* The middle section: nav links container */
 nav ul {
-    display: flex;
     list-style: none;
-    gap: 1.5rem;
+    display: flex;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
-nav a {
+/* Links inside nav */
+nav ul li a {
     text-decoration: none;
-    color: white;
-    -webkit-text-stroke: 0.4px black;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
+    color: white; /* Day mode links are white */
+    font-weight: 600;
+    padding-bottom: 4px;
+    transition: color 0.3s, transform 0.2s, border-bottom 0.3s;
+    -webkit-text-stroke: 0.5px black;
 }
 
-nav a:hover {
+/* Hover Effect */
+nav ul li a:hover {
     color: #007bff;
+    transform: translateY(-3px);
+    border-bottom: 2px solid #007bff;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #007bff;
-    transition: width 0.3s;
+/* Outline adjustment for dark mode */
+.dark-mode {
+    background: linear-gradient(135deg, black, #007bff, white);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: black; /* Night mode text is black */
 }
 
-nav a:hover::after {
-    width: 100%;
+.dark-mode nav ul li a {
+    color: black; /* Night mode links are black */
+    -webkit-text-stroke: 0.5px white;
 }
 
-#theme-toggle {
-    background: #007bff;
-    border: none;
-    padding: 0.6rem 0.8rem;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.2rem;
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
     cursor: pointer;
-    position: fixed; /* Always stays in place */
-    bottom: 20px; /* Distance from bottom */
-    left: 20px;   /* Distance from left */
-    z-index: 2000; /* Always above other elements */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.5rem;
+    color: white; /* Day mode icon white */
+    -webkit-text-stroke: 0.5px black;
 }
 
-#theme-toggle:hover {
-    background: #0056b3;
-    transform: scale(1.1);
+.dark-mode .menu-toggle {
+    color: black; /* Night mode icon black */
+    -webkit-text-stroke: 0.5px white;
 }
 
-.hero {
-    text-align: center;
-    padding: 6rem 1rem 3rem;
-}
-
+/* Highlighted Text */
 .highlight {
     color: #007bff;
 }
 
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+/* Section Layout */
 section {
     padding: 2rem;
     max-width: 900px;
     margin: auto;
 }
 
+/* Skills Section */
 .skills-list span {
     display: inline-block;
     padding: 0.5rem 1rem;
     background: #f4f4f4;
     margin: 0.3rem;
     border-radius: 5px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .skills-list span:hover {
     background: #007bff;
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
+/* Profile Picture */
 .profile-pic {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
     display: block;
-    margin: 10px 0;
+    margin: 15px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Projects Section */
 .project-card {
     background: rgba(255, 255, 255, 0.8);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
 .project-card img {
@@ -144,6 +159,7 @@ section {
     border-radius: 5px;
 }
 
+/* Contact Form */
 form {
     display: flex;
     flex-direction: column;
@@ -154,6 +170,7 @@ input, textarea, button {
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 button {
@@ -161,29 +178,38 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
     background: #0056b3;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.3);
 }
 
-/* Dark mode */
-.dark-mode {
-    background: linear-gradient(to bottom right, #000000, #001f3f, #333333);
-    color: white;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 1rem;
+        border-radius: 8px;
+    }
 
-.dark-mode a {
-    color: white;
-}
+    nav ul.active {
+        display: flex;
+    }
 
-.dark-mode header {
-    background: transparent;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    .menu-toggle {
+        display: block;
+    }
 }

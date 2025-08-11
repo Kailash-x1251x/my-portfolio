@@ -1,19 +1,29 @@
-// Theme toggle
-const toggleBtn = document.getElementById("theme-toggle");
-toggleBtn.addEventListener("click", () => {
+// Theme Toggle
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
-// Navbar fade on scroll
+// Hamburger Menu Toggle
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+// Navbar fade in/out on scroll
 let lastScrollY = window.scrollY;
-const header = document.querySelector("header");
+const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > lastScrollY) {
-        header.classList.add("hidden");
+        // scrolling down
+        navbar.style.opacity = "0";
     } else {
-        header.classList.remove("hidden");
+        // scrolling up
+        navbar.style.opacity = "1";
     }
     lastScrollY = window.scrollY;
 });
