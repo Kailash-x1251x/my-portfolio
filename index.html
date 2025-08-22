@@ -15,7 +15,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
             <span class="menu-toggle">☰</span>
             <button id="theme-toggle">🌙</button>
@@ -31,24 +32,31 @@
     <!-- About Section -->
     <section id="about">
         <h3>About Me</h3>
-        <img src="profile.jpeg" 
-        alt="Profile picture" 
-        class="profile-pic"
-        onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
-        <p>A motivated and innovative Computer Science and Engineering graduate with hands-on experience in web development and software
-engineering. Proficient in Python, SQL, and web technologies, with a growing expertise in cloud services like AWS. Passionate about solving
-real-world problems through technology, with a strong drive to learn, contribute to impactful projects, and collaborate with dynamic, cross-
-functional teams.</p>
+        <img src="profile.jpeg" alt="Profile picture" class="profile-pic"
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <p>I am a driven and innovative Computer Science and Engineering graduate with hands-on experience in web development and software engineering...</p>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
         <h3>Skills</h3>
         <div class="skills-list">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>React</span>
+            <span>Python</span>
+            <span>SQL</span>
+            <span>AWS</span>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools">
+        <h3>Tools</h3>
+        <div class="tools-list">
+            <span>GitHub</span>
+            <span>Jira</span>
+            <span>Confluence</span>
+            <span>TestRail</span>
+            <span>Opensearch</span>
+            <span>SharePoint</span>
         </div>
     </section>
 
@@ -56,21 +64,49 @@ functional teams.</p>
     <section id="projects">
         <h3>Projects</h3>
         <div class="project-card">
-            <img src="images/project1.jpg" 
-                 alt="Project 1"
+            <img src="images/project1.jpg" alt="Project 1"
                  onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200';">
             <h4>Project Title</h4>
             <p>Short description of your project.</p>
         </div>
     </section>
 
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <h3>Certificates</h3>
+        <div class="certificates-wrapper">
+            <button class="scroll-btn left">❮</button>
+            <div class="certificates-container" id="certificates-container">
+                <!-- Set 1 -->
+                <div class="certificate-card"><img src="Introduction to Artificial Intelligence (AI).jpg" alt="Certificate 1"><h4>Introduction to Artificial Intelligence(AI)</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Machine Learning with Python.jpg" alt="Certificate 2"><h4>Machine Learning with Python</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Supervised Machine Learning.jpg" alt="Certificate 3"><h4>Supervised Machine Learning : Regression</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Unsupervised Machine Learning.jpg" alt="Certificate 4"><h4>Unsupervised Machine Learning</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="GDSC Spark ML.png" alt="Certificate 5"><h4>GDSC Spark ML</h4><p>Google Developers Student Club</p></div>
+                <!-- Duplicate Set -->
+                <div class="certificate-card"><img src="Introduction to Artificial Intelligence (AI).jpg" alt="Certificate 1"><h4>Introduction to Artificial Intelligence(AI)</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Machine Learning with Python.jpg" alt="Certificate 2"><h4>Machine Learning with Python</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Supervised Machine Learning.jpg" alt="Certificate 3"><h4>Supervised Machine Learning : Regression</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="Unsupervised Machine Learning.jpg" alt="Certificate 4"><h4>Unsupervised Machine Learning</h4><p>IBM Coursera</p></div>
+                <div class="certificate-card"><img src="GDSC Spark ML.png" alt="Certificate 5"><h4>GDSC Spark ML</h4><p>Google Developers Student Club</p></div>
+            </div>
+            <button class="scroll-btn right">❯</button>
+        </div>
+    </section>
+
+    <!-- Modal for image preview -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
     <!-- Contact Section -->
     <section id="contact">
-        <h3>Contact</h3>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+        <h3>Contact Me</h3>
+        <form action="https://formspree.io/f/mwpqznqn" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </section>

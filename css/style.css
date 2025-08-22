@@ -41,6 +41,13 @@ nav {
 nav h1 {
     margin: 0;
     font-weight: 700;
+    color: white; /* White in both modes */
+    -webkit-text-stroke: 0.5px black;
+}
+
+.dark-mode nav h1 {
+    color: white; /* Keep white in night mode */
+    -webkit-text-stroke: 0.5px black;
 }
 
 /* The middle section: nav links container */
@@ -55,7 +62,7 @@ nav ul {
 /* Links inside nav */
 nav ul li a {
     text-decoration: none;
-    color: white; /* Day mode links are white */
+    color: white; /* White in both modes */
     font-weight: 600;
     padding-bottom: 4px;
     transition: color 0.3s, transform 0.2s, border-bottom 0.3s;
@@ -74,12 +81,12 @@ nav ul li a:hover {
     background: linear-gradient(135deg, black, #007bff, white);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
-    color: black; /* Night mode text is black */
+    color: black; /* Night mode body text black */
 }
 
 .dark-mode nav ul li a {
-    color: black; /* Night mode links are black */
-    -webkit-text-stroke: 0.5px white;
+    color: white; /* White in night mode too */
+    -webkit-text-stroke: 0.5px black;
 }
 
 /* Hamburger Menu */
@@ -87,13 +94,13 @@ nav ul li a:hover {
     display: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: white; /* Day mode icon white */
+    color: white; /* Icon stays white */
     -webkit-text-stroke: 0.5px black;
 }
 
 .dark-mode .menu-toggle {
-    color: black; /* Night mode icon black */
-    -webkit-text-stroke: 0.5px white;
+    color: white; /* White in dark mode too */
+    -webkit-text-stroke: 0.5px black;
 }
 
 /* Highlighted Text */
@@ -118,13 +125,31 @@ section {
 .skills-list span {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: #f4f4f4;
+    background: rgba(255, 255, 255, 0.8); /* Same as project card */
+    color: black;
     margin: 0.3rem;
     border-radius: 5px;
     transition: background 0.3s, transform 0.3s;
 }
 
 .skills-list span:hover {
+    background: #007bff;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Tools Section */
+.tools-list span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.8); /* Same as project card */
+    color: black;
+    margin: 0.3rem;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.tools-list span:hover {
     background: #007bff;
     color: white;
     transform: scale(1.05);
@@ -143,7 +168,8 @@ section {
 
 /* Projects Section */
 .project-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8); /* Matches skills card */
+    color: black;
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
@@ -157,6 +183,79 @@ section {
 .project-card img {
     max-width: 100%;
     border-radius: 5px;
+}
+
+
+/* Certificates Section */
+#certificates {
+    padding: 2rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+#certificates h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.certificates-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+.certificates-container {
+    display: flex;
+    gap: 1rem;
+    animation: scrollCertificates 15s linear infinite;
+    scroll-behavior: smooth;
+}
+.certificates-container:hover {
+    animation-play-state: paused;
+}
+.certificate-card {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    flex: 0 0 auto;
+    width: 250px;
+    transition: transform 0.3s;
+}
+.certificate-card:hover {
+    transform: translateY(-5px);
+}
+.certificate-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+@keyframes scrollCertificates {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-90%); }
+}
+/* Scroll buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: background 0.3s;
+}
+.scroll-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+.scroll-btn.left { left: 5px; }
+.scroll-btn.right { right: 5px; }
+
+
+
+/* Dark Mode Styling */
+.dark-mode .certificate-card {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
 }
 
 /* Contact Form */
@@ -213,3 +312,37 @@ footer {
         display: block;
     }
 }
+
+
+/* Modal for image preview */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.9);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover {
+    color: #bbb;
+}
+
